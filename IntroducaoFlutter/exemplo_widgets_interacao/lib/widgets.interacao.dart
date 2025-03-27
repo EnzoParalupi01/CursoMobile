@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 
-class Widgetsinteracao extends StatefulWidget{
+class WidgetsInteracao extends StatefulWidget{
   @override
-  WidgetsInteracaoState createState() => WidgetsInteracaoState();
+  _WidgetsInteracaoState createState() => _WidgetsInteracaoState();
 }
 
-class WidgetsInteracaoState extends State<Widgetsinteracao>{
-}
- @override
+class _WidgetsInteracaoState extends State<WidgetsInteracao>{
+  @override
   Widget build(BuildContext context) {
- return Scaffold(
-
- );
+    return Scaffold(
+      
+    );
+  }
   }

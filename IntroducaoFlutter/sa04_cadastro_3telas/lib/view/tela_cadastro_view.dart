@@ -1,21 +1,12 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(MaterialApp(debugShowCheckedModeBanner: false, home: MyApp()));
+class TelaCadastro extends StatefulWidget{
+  _TelaCadastroState createState() => _TelaCadastroState();
 }
 
-class MyApp extends StatefulWidget {
-  // chama as modificação de contrução
-  _MyAppState createState() => _MyAppState();
-}
-
-class _MyAppState extends State<MyApp> {
-  //construção do widget
-  //estudo de widgets de interação (Input de Texto, checkbox, ) -> formulário
-  //atributos
-  //chave de seleção dos componentes do formulário
+class _TelaCadastroState extends State<TelaCadastro>{
   final _formKey = GlobalKey<FormState>();
-  //atributos do formulário
+
   String _nome = "";
   String _email = "";
   String _senha = "";
@@ -24,7 +15,6 @@ class _MyAppState extends State<MyApp> {
   double _experiencia = 0;
   bool _aceite = false;
 
-  //métodos
   Widget build(BuildContext context) {
     //construtor de Widgets
     return Scaffold(
@@ -122,20 +112,14 @@ class _MyAppState extends State<MyApp> {
       ),
     );
   }
+  
+  
 
   void _enviarFormulario() {
     if (_formKey.currentState!.validate() && _aceite) {
       _formKey.currentState!.save();
-      showDialog(
-        context: context,
-        builder:
-            (context) => AlertDialog(
-              title: Text("Dados do Formulário"),
-              content: Column(
-                children: [Text("Nome: $_nome"), Text("Email: $_email")],
-              ),
-            ),
-      );
+      Navigator.pushNamed(context, "/confirmacao");
     }
   }
+
 }
