@@ -115,11 +115,10 @@ class _PerfilPageState extends State<PerfilPage>{
           Divider(),
           Text("Dados do Usuário:"),
           //usar um if dentro do widget
-          if(_nome !=null)
-            Text("Nome: $_nome",style: TextStyle(color: _cor=="Branco"? Colors.black : Colors.white )),
+          if(_nome =null)
+          Text("Nome: $_nome"),
           if(_idade !=null)
-            Text("Idade: $_idade",style: TextStyle(color: _cor=="Branco"? Colors.black : Colors.white )),
-            
+          Text 
         ],
       ),),
     );
