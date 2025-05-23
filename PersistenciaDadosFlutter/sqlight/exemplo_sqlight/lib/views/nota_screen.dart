@@ -8,8 +8,8 @@ class NotaScreen extends StatefulWidget{
   State<NotaScreen> createState() => _NotaScreenState();
 }
 
-class _NotaScreenState extends State<NotaScreen>{
-  final NotasController _notasController = NotasController();
+class _NotaScreenState extends State<NotaScreen>{26////////  
+  final NotasController _notasController = NotasController();       -*+.
 
   //lista para as notas
   List<Nota> _notes = [];
