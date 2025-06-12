@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:sa_petshop/controllers/pet_controller.dart';
-import 'package:sa_petshop/view/cadastro_pet_screen.dart';
-import 'package:sa_petshop/view/detalhe_pet_screen.dart';
-
+import 'package:sa_pet_shop/controllers/pet_controller.dart';
+import 'package:sa_pet_shop/view/cadastro_pet_screen.dart';
+import 'package:sa_pet_shop/view/detalhe_pet_screen.dart';
 import '../models/pet_model.dart';
 
 class HomeScreen extends StatefulWidget {

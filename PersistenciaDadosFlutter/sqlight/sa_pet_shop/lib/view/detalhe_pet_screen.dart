@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:sa_petshop/controllers/consulta_controller.dart';
-import 'package:sa_petshop/controllers/pet_controller.dart';
-import 'package:sa_petshop/models/consulta_model.dart';
-import 'package:sa_petshop/models/pet_model.dart';
-import 'package:sa_petshop/view/agenda_consulta_screen.dart';
+import 'package:sa_pet_shop/controllers/consulta_controller.dart';
+import 'package:sa_pet_shop/controllers/pet_controller.dart';
+import 'package:sa_pet_shop/models/consulta_model.dart';
+import 'package:sa_pet_shop/models/pet_model.dart';
+import 'package:sa_pet_shop/view/agenda_consulta_screen.dart';
 
 class DetalhePetScreen extends StatefulWidget{
   final int petId; //receber o PetId -> atributo

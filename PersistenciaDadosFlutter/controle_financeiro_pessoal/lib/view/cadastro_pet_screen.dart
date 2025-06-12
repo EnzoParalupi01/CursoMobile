@@ -1,0 +1,81 @@
+//formulario de Cadastro do Pet
+
+import 'package:controle_financeiro_pessoal/controllers/pet_controller.dart';
+import 'package:controle_financeiro_pessoal/models/pet_model.dart';
+import 'package:controle_financeiro_pessoal/view/home_screen.dart';
+import 'package:flutter/material.dart';
+
+class CadastroPetScreen extends StatefulWidget {
+  //tela dinamica - mudanças de estado deposi da construção inicial
+  @override
+  State<StatefulWidget> createState() => _CadastroPetScreenState(); //chama a mudança
+}
+
+class _CadastroPetScreenState extends State<CadastroPetScreen> {
+  // faz a build da Tela
+  //atributos
+  final _formKey = GlobalKey<FormState>(); //chave para armazenamento dos valores do Formulário
+  final _controllerPet = PetController();
+
+  // atributos do obj
+  String _nome = "";
+  String _raca = "";
+  String _nomeDono = "";
+  String _telefoneDono = "";
+
+  //Cadastrar o Pet (salvar no BD) 
+  Future<void> _salvarPet() async{
+    if(_formKey.currentState!.validate()){
+      _formKey.currentState!.save();
+      final newPet = Pet(
+        nome: _nome, 
+        raca: _raca, 
+        nomeDono: _nomeDono, 
+        telefoneDono: _telefoneDono);
+      //mardar as info para o DB
+      await _controllerPet.createPet(newPet);
+      //volta Para a Tela Inicial
+      // ignore: use_build_context_synchronously
+      Navigator.push(context, MaterialPageRoute(builder: (context)=>HomeScreen())); 
+
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text("Novo Pet"),),
+      body: Padding(
+        padding: EdgeInsets.all(16),
+        child: Form(
+          key: _formKey,
+          child: ListView(
+            children: [
+              TextFormField(
+                decoration: InputDecoration(labelText: "Nome do Pet"),
+                validator: (value)=> value!.isEmpty ? "Campo não Preenchido!!!": null,
+                onSaved: (value) => _nome= value!,
+              ),
+              TextFormField(
+                decoration: InputDecoration(labelText: "Raça do Pet"),
+                validator: (value)=> value!.isEmpty ? "Campo não Preenchido!!!": null,
+                onSaved: (value) => _raca= value!,
+              ),
+              TextFormField(
+                decoration: InputDecoration(labelText: "Dono do Pet"),
+                validator: (value)=> value!.isEmpty ? "Campo não Preenchido!!!": null,
+                onSaved: (value) => _nomeDono= value!,
+              ),
+              TextFormField(
+                decoration: InputDecoration(labelText: "Telefone do Pet"),
+                validator: (value)=> value!.isEmpty ? "Campo não Preenchido!!!": null,
+                onSaved: (value) => _telefoneDono= value!,
+              ),
+              ElevatedButton(onPressed: _salvarPet, child: Text("Cadastrar Pet"))
+            ],
+          )
+          ),
+        ),
+    );
+  }
+}

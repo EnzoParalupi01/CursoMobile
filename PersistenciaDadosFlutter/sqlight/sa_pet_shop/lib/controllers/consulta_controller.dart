@@ -1,5 +1,5 @@
-import 'package:sa_petshop/models/consulta_model.dart';
-import 'package:sa_petshop/services/petshop_dbhelper.dart';
+import 'package:sa_pet_shop/models/consulta_model.dart';
+import 'package:sa_pet_shop/services/petshop_dbhelper.dart';
 
 class ConsultaController {
   final _dbHelper = PetShopDBHelper();

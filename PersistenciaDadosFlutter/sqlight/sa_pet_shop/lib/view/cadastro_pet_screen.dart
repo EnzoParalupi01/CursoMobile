@@ -1,11 +1,13 @@
 //formulario de Cadastro do Pet
 
 import 'package:flutter/material.dart';
-import 'package:sa_petshop/controllers/pet_controller.dart';
-import 'package:sa_petshop/models/pet_model.dart';
-import 'package:sa_petshop/view/home_screen.dart';
+import 'package:sa_pet_shop/controllers/pet_controller.dart';
+import 'package:sa_pet_shop/models/pet_model.dart';
+import 'package:sa_pet_shop/view/home_screen.dart';
 
 class CadastroPetScreen extends StatefulWidget {
+  const CadastroPetScreen({super.key});
+
   //tela dinamica - mudanças de estado deposi da construção inicial
   @override
   State<StatefulWidget> createState() => _CadastroPetScreenState(); //chama a mudança

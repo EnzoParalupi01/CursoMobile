@@ -1,4 +1,4 @@
-import 'package:sa_petshop/services/petshop_dbhelper.dart';
+import 'package:sa_pet_shop/services/petshop_dbhelper.dart';
 
 import '../models/pet_model.dart';
 

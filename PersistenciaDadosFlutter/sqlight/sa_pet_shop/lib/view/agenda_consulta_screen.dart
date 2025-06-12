@@ -1,9 +1,9 @@
 //página de agendamento de consultas e serviços do PET
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:sa_petshop/controllers/consulta_controller.dart';
-import 'package:sa_petshop/models/consulta_model.dart';
-import 'package:sa_petshop/view/detalhe_pet_screen.dart';
+import 'package:sa_pet_shop/controllers/consulta_controller.dart';
+import 'package:sa_pet_shop/models/consulta_model.dart';
+import 'package:sa_pet_shop/view/detalhe_pet_screen.dart';
 
 //classe que recebe as mudanças de state
 class AgendaConsultaScreen extends StatefulWidget {
@@ -120,8 +120,9 @@ class _AgendaConsultaScreenState extends State<AgendaConsultaScreen>{
             TextFormField(
               decoration: InputDecoration(labelText: "Observação"),
               maxLength: 3,
-              
-            )
+              onSaved: (newValue) => _observacao = newValue!,
+            ),
+            ElevatedButton(onPressed: _salvarAgendamento, child: Text("Criar Agendamento"))
           ],
         ),
       ),),
