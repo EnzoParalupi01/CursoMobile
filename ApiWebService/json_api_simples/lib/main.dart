@@ -61,10 +61,10 @@ class _TarefasPageState extends State<TarefasPage>{
       );
       //verifica se deu certo
       if(response.statusCode == 201){
-        setState(() {
+        // setState(() {
           _tarefaController.clear();
           _carregarTarefas();
-        });
+        // });
       }
     } catch (e) {
       print("Erro ao adicionar tarefa $e");
@@ -77,36 +77,17 @@ class _TarefasPageState extends State<TarefasPage>{
       //solicitação http -> delete (URL + ID)
       final response = await http.delete(Uri.parse("$baseUrl/$id"));
       if(response.statusCode == 200){
-        setState(() {
+        // setState(() {
           _carregarTarefas();
-        });
+        // });
       }
     } catch (e) {
       print("Erro ao deletar Tarefa $e");      
     }
   }
 
-  // atualizar tarefa
-  void _atualizarTarefa(String id, bool concluida) async {
-    try {
-      //cria um objeto -> tarefa
-      final tarefa = {"concluida":!concluida}; //inverte o estado
-      //faz o put http
-      final response = await http.put(
-        Uri.parse("$baseUrl/$id"),
-        headers: {"Content-Type":"application/json"},
-        body: json.encode(tarefa) //converte dart -> json
-      );
-      if(response.statusCode == 200){
-        setState(() {
-          _carregarTarefas();
-        });
-      }
-    } catch (e) {
-      print("Erro ao atualizar Tarefa $e");
-    }
-  }
- 
+  //atualizar tarefa
+
 
   //build Tela
   @override
