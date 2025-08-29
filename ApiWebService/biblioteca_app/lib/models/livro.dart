@@ -1,49 +1,35 @@
+class Livro {
+  //atributos
+  final String? id;
+  final String titulo;
+  final String autor;
+  final bool disponivel;
 
-{
-  "usuarios": [
-    {
-      "id": "1",
-      "nome": "João Silva",
-      "email": "joao@email.com"
-    },
-    {
-      "id": "2",
-      "nome": "Maria Santos",
-      "email": "maira@email.com"
-    },
-    {
-      "id": "4ce0",
-      "email": "drika.dantas24@gmail.com",
-      "senha": "12345"
-    },
-    {
-      "id": "09fc",
-      "email": "drika@gmail.com",
-      "senha": "12345"
-    }
-  ],
-  "livros": [
-    {
-      "id": "1",
-      "titulo": "Guia dos Mochileiros da Galáxia",
-      "autor": "Douglas Noel Adans",
-      "disponivel": false
-    },
-    {
-      "id": "2",
-      "titulo": "Memórias Póstumas de Brás Cubas",
-      "autor": "Machado de Assis",
-      "disponivel": true
-    }
-  ],
-  "emprestimos": [
-    {
-      "id": "1",
-      "usuario_id": 1,
-      "livro_id": 1,
-      "data_emprestimo": "2025-08-22",
-      "data_devolucao": "2025-09-01",
-      "devolvido": false
-    }
-  ]
+  //construtor
+  Livro({
+    this.id,
+    required this.titulo,
+    required this.autor,
+    required this.disponivel
+  });
+
+  //ToMAp
+  Map<String,dynamic> toMap() => {
+    "id":id,
+    "titulo":titulo,
+    "autor":autor,
+    "disponivel":disponivel
+  };
+
+  //FromMap
+  factory Livro.fromMap(Map<String,dynamic> map) => Livro(
+    id: map["id"].toString(),
+    titulo: map["titulo"].toString(), 
+    autor: map["autor"].toString(), 
+    disponivel: map["disponivel"] == 1 ? true : false);
+
+  static Future<Livro> fromJson(Map<String, dynamic> created) async {}
+
+  Map<String, dynamic> toJson() {}
 }
+

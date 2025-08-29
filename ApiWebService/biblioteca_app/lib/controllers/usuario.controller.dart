@@ -14,12 +14,21 @@ class UsuarioController {
   }
   //Get de um unico Usuário
   Future<Usuario> fetchOne(String id) async{
-    final usuario = await ApiService.getOne("usuario", id);
+    final usuario = await ApiService.getOne("usuarios", id);
     return Usuario.fromJson(usuario);
   }
   //Post -> Criar um Novo usuário
-
-  //Put -> alterar um Usuário
-
-  //Delete -> Deletar um Usuário
+  Future<Usuario> create(Usuario user) async{
+    final created = await ApiService.post("usuarios", user.toJson());
+    return Usuario.fromJson(created);
+  }
+  //Put -> Alterar um Usuário
+  Future<Usuario> update(Usuario user) async{
+    final updated = await ApiService.put("usuarios", user.toJson(), user.id!);
+    return Usuario.fromJson(updated);
+  }
+  // Delete -> Deletar um Usuário
+  Future<void> delete(String id) async{
+    await ApiService.delete("usuarios", id);
+  }
 }
