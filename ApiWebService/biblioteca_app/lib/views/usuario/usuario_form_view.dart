@@ -85,14 +85,14 @@ class _UsuarioFormViewState extends State<UsuarioFormView> {
                 validator: (value) => value!.isEmpty ? "Informe o Nome" : null,
               ),
               TextFormField(
-                controller: _nomeField,
-                decoration: InputDecoration(labelText: "Nome"),
-                validator: (value) => value!.isEmpty ? "Informe o Nome" : null,
+                controller: _emailField,
+                decoration: InputDecoration(labelText: "Email"),
+                validator: (value) => value!.isEmpty ? "Informe o Email" : null,
               ),
               SizedBox(height: 20,),
               ElevatedButton(
-                onPressed: widget.user == null ? _save : _update,
-                 child: Text(widget.user == null? "Salvar" : "Atualizar"))
+                onPressed: widget.user == null ? _save : _update, 
+                child: Text(widget.user == null? "Salvar" : "Atualizar"))
             ],
           )),),
     );

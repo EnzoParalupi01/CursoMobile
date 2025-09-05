@@ -27,9 +27,5 @@ class Livro {
     titulo: map["titulo"].toString(), 
     autor: map["autor"].toString(), 
     disponivel: map["disponivel"] == 1 ? true : false);
-
-  static Future<Livro> fromJson(Map<String, dynamic> created) async {}
-
-  Map<String, dynamic> toJson() {}
 }
 
