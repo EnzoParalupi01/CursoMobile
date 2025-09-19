@@ -1,20 +1,39 @@
+import 'dart:async';
+
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(const MainApp());
+// Adicione os imports abaixo conforme o nome dos seus arquivos:
+import 'views/login_view.dart';
+import 'views/favorite_view.dart'; // Crie esse arquivo se ainda não existir
+
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  
+  runApp(MaterialApp(
+    title: "Cine Favorite",
+    theme: ThemeData(
+      primarySwatch: Colors.orange,
+      brightness: Brightness.dark
+    ),
+    home: AuthStream(),
+  ));
 }
 
-class MainApp extends StatelessWidget {
-  const MainApp({super.key});
+class AuthStream extends StatelessWidget {
+  const AuthStream({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
-        ),
-      ),
-    );
+    return StreamBuilder<User?>(
+      stream: FirebaseAuth.instance.authStateChanges(),
+      builder: (context, snapshot){
+        if(snapshot.hasData){
+          return FavoriteView();
+        }
+        return LoginView();
+      });
   }
 }
