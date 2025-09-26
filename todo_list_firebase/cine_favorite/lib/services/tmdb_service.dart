@@ -9,6 +9,7 @@ class TmdbService {
   static const String _apiKey = "1fa5c2d59029fd1c438cc35713720604";
   static const String _baseURL = "https://api.themoviedb.org/3";
   static const String _idioma = "pt-BR";
+  //static -> atributos da classe e não do OBJ
 
   //método para buscar filme com base no texto
 
