@@ -2,11 +2,11 @@ import 'package:geolocator/geolocator.dart';
 import 'package:intl/intl.dart';
 import 'package:sa_geolocator_maps/models/location_points.dart';
 
-class MapController {
+class PointController {
   final DateFormat _formatar = DateFormat("dd/MM/yyyy - HH:mm:ss");
 
   //método para pegar a geolocalização do ponto
-  Future<LocationPoints> _getcurrentLocation() async {
+  Future<LocationPoints> getcurrentLocation() async {
     //solictar a klocalização atual do dispositivo
     //liberar permissões
     //verificar se o aplicativo possui o serviço de geolocalização habilitado
